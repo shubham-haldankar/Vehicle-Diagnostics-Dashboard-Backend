@@ -3,7 +3,7 @@ import {
   getLogsByFilters,
   hasAnyLogs,
   insertLogEntry,
-} from "../models/user.model.js";
+} from "../repositories/logs.repository.js";
 
 function parseLogLine(line) {
   const match = line.match(

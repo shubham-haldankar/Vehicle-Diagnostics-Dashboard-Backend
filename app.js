@@ -5,7 +5,7 @@ import express from "express";
 // import routes from "./src/routes/index.js";
 import { initializeDatabase } from "./src/config/database.js";
 // import { errorMiddleware } from "./src/middleware/error.middleware.js";
-import { importLogsIfEmpty } from "./src/services/user.service.js";
+import { importLogsIfEmpty } from "./src/services/logs.service.js";
 
 const app = express();
 const PORT = Number(process.env.PORT) || 3000;

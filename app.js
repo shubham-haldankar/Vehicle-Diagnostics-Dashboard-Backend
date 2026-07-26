@@ -5,6 +5,7 @@ import express from "express";
 // import routes from "./src/routes/index.js";
 import { initializeDatabase } from "./src/config/database.js";
 // import { errorMiddleware } from "./src/middleware/error.middleware.js";
+import { importLogsIfEmpty } from "./src/services/user.service.js";
 
 const app = express();
 const PORT = Number(process.env.PORT) || 3000;
@@ -21,6 +22,7 @@ app.use(express.json());
 
 try {
   await initializeDatabase();
+  await importLogsIfEmpty();
 
   app.listen(PORT, () => {
     console.log(`Backend running at http://localhost:${PORT}`);

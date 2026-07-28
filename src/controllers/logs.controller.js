@@ -27,14 +27,7 @@ async function getLogs(req, res, next) {
     const logs = await getLogsData(filters);
     return sendSuccess(res, logs);
   } catch (error) {
-    const message = error.message || "internal server error";
-    const status = error.status || 500;
-
-    if (status >= 500) {
-      console.error(error);
-    }
-
-    return res.status(status).json({ error: message });
+    return next(error);
   }
 }
 

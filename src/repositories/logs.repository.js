@@ -45,19 +45,19 @@ async function getLogsByFilters(filters) {
     params.push(Number(filters.vehicleId));
   }
 
-  if (filters.code) {
+  if (filters.errorCode) {
     sql += ` AND code = $${i++}`;
-    params.push(filters.code);
+    params.push(filters.errorCode);
   }
 
-  if (filters.from) {
+  if (filters.fromDate) {
     sql += ` AND datetimecreated >= $${i++}`;
-    params.push(filters.from.toISOString());
+    params.push(filters.fromDate.toISOString());
   }
 
-  if (filters.to) {
+  if (filters.toDate) {
     sql += ` AND datetimecreated <= $${i++}`;
-    params.push(filters.to.toISOString());
+    params.push(filters.toDate.toISOString());
   }
 
   const { rows } = await db.query(sql, params);

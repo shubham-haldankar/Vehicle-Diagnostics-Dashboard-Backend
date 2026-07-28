@@ -9,9 +9,9 @@ const getLogsQuerySchema = Joi.object({
     Joi.number().integer(),
     Joi.string().trim(),
   ),
-  code: Joi.string().trim(),
-  from: Joi.date().iso(),
-  to: Joi.date().iso(),
+  errorCode: Joi.string().trim(),
+  fromDate: Joi.date().iso(),
+  toDate: Joi.date().iso(),
 });
 
 export { getLogsQuerySchema };

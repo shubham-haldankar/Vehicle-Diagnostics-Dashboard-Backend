@@ -20,6 +20,7 @@ async function getLogs(req, res, next) {
     const filters = {
       vehicleId: value.vehicleId ?? value.vehicleid,
       errorCode: value.errorCode,
+      severity: value.severity,
       fromDate: value.fromDate,
       toDate: value.toDate,
     };

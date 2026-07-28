@@ -5,6 +5,7 @@ describe("getLogsQuerySchema", () => {
     const { error } = getLogsQuerySchema.validate({
       vehicleId: 101,
       errorCode: "P0420",
+      severity: "ERROR",
       fromDate: "2024-01-01T00:00:00.000Z",
       toDate: "2024-01-02T00:00:00.000Z",
     });

@@ -50,6 +50,11 @@ async function getLogsByFilters(filters) {
     params.push(filters.errorCode);
   }
 
+  if (filters.severity) {
+    sql += ` AND logtype = $${i++}`;
+    params.push(filters.severity);
+  }
+
   if (filters.fromDate) {
     sql += ` AND datetimecreated >= $${i++}`;
     params.push(filters.fromDate.toISOString());

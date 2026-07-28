@@ -10,6 +10,7 @@ const getLogsQuerySchema = Joi.object({
     Joi.string().trim(),
   ),
   errorCode: Joi.string().trim(),
+  severity: Joi.string().trim(),
   fromDate: Joi.date().iso(),
   toDate: Joi.date().iso(),
 });

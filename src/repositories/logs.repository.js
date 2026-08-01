@@ -82,7 +82,7 @@ async function getLogsByFilters(filters) {
     params.push(filters.toDate.toISOString());
   }
 
-  sql += ` ORDER BY ${filters.sortedBy} ${filters.sortedOrder}, id DESC`;
+  sql += ` ORDER BY ${filters.sortBy} ${filters.sortOrder}, id DESC`;
   sql += ` LIMIT $${i++} OFFSET $${i++}`;
   params.push(filters.limit, filters.offset);
 

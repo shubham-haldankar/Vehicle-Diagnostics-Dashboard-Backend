@@ -10,15 +10,15 @@ describe("getLogsQuerySchema", () => {
       toDate: "2024-01-02T00:00:00.000Z",
       limit: 100000,
       offset: 0,
-      sortedBy: "vehicleId",
-      sortedOrder: "asc",
+      sortBy: "vehicleId",
+      sortOrder: "asc",
     });
 
     expect(error).toBeUndefined();
     expect(value.limit).toBe(100000);
     expect(value.offset).toBe(0);
-    expect(value.sortedBy).toBe("vehicleId");
-    expect(value.sortedOrder).toBe("asc");
+    expect(value.sortBy).toBe("vehicleId");
+    expect(value.sortOrder).toBe("asc");
   });
 
   test("applies default pagination and sorting values", () => {
@@ -27,8 +27,8 @@ describe("getLogsQuerySchema", () => {
     expect(error).toBeUndefined();
     expect(value.limit).toBe(10);
     expect(value.offset).toBe(0);
-    expect(value.sortedBy).toBe("dateTimeCreated");
-    expect(value.sortedOrder).toBe("desc");
+    expect(value.sortBy).toBe("dateTimeCreated");
+    expect(value.sortOrder).toBe("desc");
   });
 
   test("rejects invalid dates", () => {
@@ -50,8 +50,8 @@ describe("getLogsQuerySchema", () => {
 
   test("rejects invalid sorting values", () => {
     const { error } = getLogsQuerySchema.validate({
-      sortedBy: "message",
-      sortedOrder: "descending",
+      sortBy: "message",
+      sortOrder: "descending",
     });
 
     expect(error).toBeDefined();

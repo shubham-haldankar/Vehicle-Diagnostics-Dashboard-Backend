@@ -42,8 +42,8 @@ async function getLogsData(filters) {
   const { records, stats } = await getLogsByFilters(filters);
 
   return {
-    sortedBy: filters.sortedBy,
-    sortedOrder: filters.sortedOrder,
+    sortedBy: filters.sortBy,
+    sortedOrder: filters.sortOrder,
     limit: filters.limit,
     offset: filters.offset,
     records,

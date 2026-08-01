@@ -13,6 +13,12 @@ const getLogsQuerySchema = Joi.object({
   severity: Joi.string().trim(),
   fromDate: Joi.date().iso(),
   toDate: Joi.date().iso(),
+  limit: Joi.number().integer().min(1).max(100000).default(10),
+  offset: Joi.number().integer().min(0).default(0),
+  sortedBy: Joi.string()
+    .valid("dateTimeCreated", "vehicleId", "logType", "code")
+    .default("dateTimeCreated"),
+  sortedOrder: Joi.string().valid("asc", "desc").default("desc"),
 });
 
 export { getLogsQuerySchema };

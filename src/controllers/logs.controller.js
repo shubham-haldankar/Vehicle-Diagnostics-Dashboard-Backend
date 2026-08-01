@@ -23,6 +23,10 @@ async function getLogs(req, res, next) {
       severity: value.severity,
       fromDate: value.fromDate,
       toDate: value.toDate,
+      limit: value.limit,
+      offset: value.offset,
+      sortedBy: value.sortedBy,
+      sortedOrder: value.sortedOrder,
     };
 
     const logs = await getLogsData(filters);

@@ -4,7 +4,7 @@ dotenv.config();
 import express from "express";
 import routes from "./src/routes/index.js";
 import { initializeDatabase } from "./src/config/database.js";
-// import { errorMiddleware } from "./src/middleware/error.middleware.js";
+import { errorMiddleware } from "./src/middleware/error.middleware.js";
 import { importLogsIfEmpty } from "./src/services/logs.service.js";
 
 const app = express();
@@ -18,7 +18,7 @@ app.use(
 app.use(express.json());
 
 app.use(routes);
-// app.use(errorMiddleware);
+app.use(errorMiddleware);
 
 try {
   await initializeDatabase();

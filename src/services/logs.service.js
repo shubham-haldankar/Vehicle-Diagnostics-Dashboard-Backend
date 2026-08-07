@@ -39,7 +39,7 @@ async function importLogsIfEmpty(file = "vehicle_diagnostics_logs.txt") {
 }
 
 async function getLogsData(filters) {
-  const { records, stats } = await getLogsByFilters(filters);
+  const { records, stats = {} } = await getLogsByFilters(filters);
 
   return {
     sortedBy: filters.sortBy,
@@ -48,12 +48,12 @@ async function getLogsData(filters) {
     offset: filters.offset,
     records,
     stats: {
-      total: stats.total,
-      errors: stats.errors,
-      warns: stats.warns,
-      infos: stats.infos,
-      vehicles: stats.vehicles,
-      codes: stats.codes,
+      total: stats.total ?? 0,
+      errors: stats.errors ?? 0,
+      warns: stats.warns ?? 0,
+      infos: stats.infos ?? 0,
+      vehicles: stats.vehicles ?? 0,
+      codes: stats.codes ?? 0,
     },
   };
 }
